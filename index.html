@@ -4,12 +4,85 @@
 <head>
   <title>Studio Week 3</title>
   <!-- Add Mapbox GL JS JavaScript file -->
-
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
   <!-- Add in the Mapbox GL JS CSS file -->
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+<div id='map'></div>
+<div class='map-overlay' id='features'><h2>US population density</h2><div id='pd'><p>Hover over a state!</p></div></div>
+<div class='map-overlay' id='legend'></div>
 
   <!-- Add CSS styling info for the map -->
   <style type="text/css">
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
+  h2,
+  h3 {
+    margin: 10px;
+    font-size: 1.2em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 0.85em;
+    margin: 10px;
+    text-align: left;
+  }
+
+  /**
+  * Create a position for the map
+  * on the page */
+  #map {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  /**
+  * Set rules for how the map overlays
+  * (information box and legend) will be displayed
+  * on the page. */
+  .map-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.8);
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+    overflow: auto;
+    border-radius: 3px;
+  }
+
+  #features {
+    top: 200px;
+    height: 100px;
+    margin-top: 20px;
+    width: 250px;
+  }
+
+  #legend {
+    padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    height: 150px;
+    margin-bottom: 40px;
+    width: 100px;
+  }
+
+  .legend-key {
+    display: inline-block;
+    border-radius: 20%;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
 
   </style>
   <!-- Adding styling info for page layout by reading in a CSS file -->
@@ -33,12 +106,45 @@
 
   <script>
     // Add your access token
-
+mapboxgl.accessToken = 'pk.eyJ1Ijoic3B5YWt1cmVsIiwiYSI6ImNrZWhmM21oYTFkY3EyemxnMjg2N3FmNTEifQ.GPQgzkr-REarSzyMDcf8Cg';
     // Create a variable called "map" to house your map
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/spyakurel/ckgealoxl4cb519pjfw9nmtzs' // replace this with your style URL
+    });
 
+    map.on('load', function() {
+  // the rest of the code will go in here
     // Add a legend
+    var layers = ['0-10', '10-20', '20-50', '50-100', '100-200', '200-500', '500-1000', '1000+'];
+    var colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
+    for (i = 0; i < layers.length; i++) {
+      var layer = layers[i];
+      var color = colors[i];
+      var item = document.createElement('div');
+      var key = document.createElement('span');
+      key.className = 'legend-key';
+      key.style.backgroundColor = color;
 
-    // Add the information window
+      var value = document.createElement('span');
+      value.innerHTML = layer;
+      item.appendChild(key);
+      item.appendChild(value);
+      legend.appendChild(item);
+}
+});
+  // Add the information window
+  map.on('mousemove', function(e) {
+  var states = map.queryRenderedFeatures(e.point, {
+    layers: ['statedata']
+  });
+
+  if (states.length > 0) {
+    document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.name + '</strong></h3><p><strong><em>' + states[0].properties.density + '</strong> people per square mile</em></p>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover over a state!</p>';
+  }
+});
 
   </script>
 </body>

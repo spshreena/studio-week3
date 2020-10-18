@@ -8,6 +8,8 @@
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.css" rel="stylesheet" />
   <!-- Adding Mapbox JavaScript file -->
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.7.0/mapbox-gl.js"></script>
+
+  <div id='mapId'></div>
   <!-- Adding styling info for the map -->
   <style type="text/css">
     body {
@@ -36,13 +38,13 @@
   </ul>
   <br>
 
-  <div id="map"></div>
+  <div id="mapId"></div>
   <script>
 
     // Initialize the map
-    mapboxgl.accessToken = '<your access token here>';
+    mapboxgl.accessToken = '<pk.eyJ1Ijoic3B5YWt1cmVsIiwiYSI6ImNrZWhmM21oYTFkY3EyemxnMjg2N3FmNTEifQ.GPQgzkr-REarSzyMDcf8Cg>';
     var map = new mapboxgl.Map({
-      container: 'map', // container id
+      container: 'mapId', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
       center: [-122.44, 37.76], // starting position [lng, lat]
       zoom: 11 // starting zoom

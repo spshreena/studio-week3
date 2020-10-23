@@ -159,11 +159,6 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3B5YWt1cmVsIiwiYSI6ImNrZWhmM21oYTFkY3EyemxnM
       legend.appendChild(item);
 }
 
-
-
-map.getCanvas().style.cursor = 'default';
-map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
-
 map.on('mousemove', function(e) {
   var states = map.queryRenderedFeatures(e.point, {
     layers: ['statedata']
@@ -189,6 +184,10 @@ map.on('mousemove', function(e) {
     }
   });
 
+    
+map.getCanvas().style.cursor = 'default';
+map.fitBounds([[-133.2421875, 16.972741], [-47.63671875, 52.696361]]);
+    
   </script>
 </body>
 

@@ -157,8 +157,9 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3B5YWt1cmVsIiwiYSI6ImNrZWhmM21oYTFkY3EyemxnM
       item.appendChild(key);
       item.appendChild(value);
       legend.appendChild(item);
-}
-
+  }
+});
+    
 map.on('mousemove', function(e) {
   var states = map.queryRenderedFeatures(e.point, {
     layers: ['statedata']

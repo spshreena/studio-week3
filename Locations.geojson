@@ -1,0 +1,7 @@
+{"type":"FeatureCollection", "features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-78.79639,21.73528]},"properties":{"OBJECTID":1,"Organization":"International Organization for Migration (IOM)","Acronym":"IOM","Lat":21.73528,"Long":-78.79639,"Active":"yes ","Sector":"Migration ","Country Location":"Cuba","id":1}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-78.50188,-0.183839999999975]},"properties":{"OBJECTID":2,"Organization":"USAID office Food for peace/UN World food program(UNFP)","Acronym":"USAID/UNFP","Lat":-0.18384,"Long":-78.50188,"Active":"yes ","Sector":"Migration ","Country Location":"Ecuador ","id":2}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-66.8332799999999,10.4941200000001]},"properties":{"OBJECTID":3,"Organization":"Water, Sanitation and Hygiene (WASH)","Acronym":"WASH","Lat":10.49412,"Long":-66.83328,"Active":"yes ","Sector":"Health/Sanitation ","Country Location":"Venezuela","id":3}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-66.87247,10.4632800000001]},"properties":{"OBJECTID":4,"Organization":"UNHCR","Acronym":"UNHCR","Lat":10.46328,"Long":-66.87247,"Active":"yes ","Sector":"Migration ","Country Location":"Venezuela","id":4}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-66.89584,10.5046100000001]},"properties":{"OBJECTID":5,"Organization":"Red Cross","Acronym":"Red Cross","Lat":10.50461,"Long":-66.89584,"Active":"yes ","Sector":"Health/Sanitation ","Country Location":"Venezuela","id":5}}
+]}
